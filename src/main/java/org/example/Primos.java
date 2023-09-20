@@ -8,8 +8,6 @@ public class Primos {
         System.out.println("BUSCADOR DE PRIMOS");
         System.out.println("==================");
 
-
-
         Scanner sc = new Scanner(System.in);
 
         int inicio=1;
@@ -18,25 +16,30 @@ public class Primos {
         while(inicio!=0){
             System.out.println("Escriba el numero inicial (0 para salir)");
             inicio = sc.nextInt();
-            System.out.println("Escriba el numero final");
-            int fin = sc.nextInt();
+
+            if(inicio!=0){
+                System.out.println("Escriba el numero final");
+                int fin = sc.nextInt();
 
 
-            System.out.println("Buscando primos...");
-            for (int i = inicio; i <= fin; i++) {
-                int cont=0;
-                for(int j = i;j >= 1;j--){
-                    if(i % j == 0){
-                        cont++;
+                System.out.println("Buscando primos...");
+                for (int i = inicio; i <= fin; i++) {
+                    int cont=0;
+                    for(int j = i;j >= 1;j--){
+                        if(i % j == 0){
+                            cont++;
+                        }
                     }
-                }
 
-                if((cont==2)) {
-                    System.out.println(i);
-                    contador++;
-                }
+                    if((cont==2) || (i==1)) {
+                        System.out.println(i);
+                        contador++;
+                    }
 
+                }
             }
+
+
         }
         System.out.println("Se han encontrado "+contador+" números primos en el intervalo");
 
